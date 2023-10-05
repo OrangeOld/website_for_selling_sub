@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example_of_post</title>
+</head>
+<body>
+<h1>{{sub.Name}}</h1>
+<!--
+{% if sub.image %}
+    <p>{{sub.image}}</p>
+    <img src="{{sub.image.url}}" style="max-height:300px"/>
+{%endif%}-->
+<a href="{% url 'test-form' %}">Rent a sub</a>
+<a href="{%url 'mainpage'%}">Return to main page</a>
+</body>
+</html>

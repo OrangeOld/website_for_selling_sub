@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main_Page</title>
+    <link rel="stylesheet" href="{% static 'css/formainpage.css' %}">
+</head>
+<body>
+<header>
+    <h1 align="center">
+        The name of the beach
+    </h1>
+</header>
+<main>
+    <ul>
+        {% for cur in subs %}
+        <li>
+            <hr>
+                <!--<img src="{%static 'images/yach2.jpg'%}">--><a href="{%url 'post' cur.slug%}">{{cur.Name}}</a>
+        </li>
+        {%endfor%}
+    </ul>
+    <a href="{%url 'register'%}">Registration</a>
+    <br>
+    <a href="{%url 'login'%}">Login</a>
+</main>
+<footer>
+
+</footer>
+</body>
+</html>
