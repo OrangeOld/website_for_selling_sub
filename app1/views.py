@@ -6,6 +6,7 @@ from app1.models import *
 from django.views.generic import *
 from .forms import *
 from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
+import smtplib
 # Create your views here.
 
 class Customers(ListView):
@@ -24,17 +25,29 @@ def handle_form(request):
         form=BeachUser(request.POST,request.FILES)
         if form.is_valid():
             form.save()
+            def send_notice():
+                smtp_server = "smtp.gmail.com"
+                port = 587
+                username = ""
+                password = ""
+                sender_email = f"{form.cleaned_data.get('email')}"
+                recipient_email = ""
+
+                server = smtplib.SMTP(smtp_server, port)
+                server.starttls()
+                server.login(username, password)
+
+                message = f"{form.cleaned_data.get('Name')} wants to rent a boat!!!"
+
+                server.sendmail(sender_email, recipient_email, message)
+                server.quit()
+            send_notice()
             return redirect('succ')
     else:
         form=BeachUser()
     return render(request,r'test-form.html',{'form':form})
 
 def Succesrent(request):
-    '''
-    ---------------ADD--------------------
-    function that will send information about succesful rent
-    to a seller (gmail, or telegram etc.)
-    '''
     return render(request,r'Successful_rent.html')
 
 def show_post(request,post_slug):

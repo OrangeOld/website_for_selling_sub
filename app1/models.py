@@ -11,6 +11,7 @@ class User(models.Model):
    # phone_number=PhoneNumberField()
     Start_Date=models.DateTimeField(default=timezone.now)
     slug=models.SlugField(unique=True)
+    email=models.EmailField(blank=True,null=True)
     image=models.ImageField(upload_to='images/%Y/%m/%d/')
     def save(self,*args,**kwargs):
         if not self.slug:

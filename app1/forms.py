@@ -5,6 +5,6 @@ from . import models
 class BeachUser(forms.ModelForm):
     class Meta:
         model=models.User
-        fields=['Name','Surname','Armchair_number','image']
+        fields=['Name','Surname','Armchair_number','image','email']
 
 
