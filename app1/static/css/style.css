@@ -1,0 +1,14 @@
+:root{
+    --color1: #e6f0a3;
+    --color2: #dbf043;
+}
+
+header {
+    padding: 200px,0;
+}
+header,footer,section{
+    padding: 100px,0;
+}
+header,footer{
+    background: url(../img/pattern.png) ,linear-gradient(to right,  #e6f0a3 0%,#c3d825 31%,#d2e638 50%,#c3d825 59%,#c3d825 64%,#c3d825 66%,#c3d825 79%,#dbf043 100%);
+}
