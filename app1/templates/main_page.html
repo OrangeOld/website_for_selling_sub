@@ -8,108 +8,194 @@
     <link href="{% static 'css/bootstrap.min.css' %}"
           rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-          crossorigin="anonymous"><!--Bootstrap-->>
-    <link href="{%static 'img/favicon.ico' %}" rel="apple-touch-icon-precomposed">
-    <link href="{%static 'css/fontello.css' %}" rel="stylesheet"><!--icons-->
+          crossorigin="anonymous"><!--Bootstrap-->
+    <link href="{% static 'img/favicon.ico' %}" rel="apple-touch-icon-precomposed">
+    <link href="{% static 'css/fontello.css' %}" rel="stylesheet"><!--icons-->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/formainpage.css' %}" rel="stylesheet">
+    <!--icons-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 <header>
-    <!--navigation menu-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="#carouselExampleIndicators">Rent</a><!--For logo-->
-          <div class="container">
-              <div class="row">
-                  <div class="col-9">
-                      <ul class="navbar-nav">
-                        <li class="nav-item">
-                          <a class="nav-link" href="#footer">Contacts</a>
-                        </li>
-                      </ul>
-                  </div>
-                  <div class="col-3">
-                      <ul class="navbar-nav">
-                        <li class="nav-item">
-                          <a class="nav-link" href="{%url 'register'%}">Sign up</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="{%url 'login'%}">Log in</a>
-                        </li>
-                      </ul>
-                  </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!--Title of mainpage-->
     <div class="container">
+      <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+              <div class="collapse navbar-collapse">
+                <div class="navbar-nav">
+                  <a class="nav-item nav-link" href="#Renting">Rent</a>
+                  <a class="nav-item nav-link" href="#footer">Contacts</a>
+                </div>
+              </div>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-item nav-link" href="{%url 'register'%}">Sign up</a>
+                  <a class="nav-item nav-link" href="{%url 'login'%}">Log in</a>
+                </div>
+              </div>
+        </nav>
+      </div>
+  </div>
+    {%block HEADER%}
+    <!--HEADER-->
+    <div class="container mt-4 border border-dark rounded">
+        <h1 class="text-center font-weight-bold">Welcome to Your Website</h1>
+        <p class="text-center">This is a simple Bootstrap-based header.</p>
+    </div>
+    <!--About advantages of our beach-->
+    <div class="container my-5">
         <div class="row">
-            <div class="col-12">
-                <h1 align="center">
-                    The name of the beach
-                </h1>
+            <h2 class="text-center border border-dark">Advantages of our beach</h2>
+            <div class="col-4 my-3 border border-dark">
+                <!--font awesome icon-->
+                <!--<i class="fa fa-search"></i>-->
+                <h3>Free training to help you to use boats!</h3>
+            </div>
+            <div class="col-4 my-3 border border-dark">
+                <h3>The cheapest price compare to another beaches!</h3>
+            </div>
+            <div class="col-4 my-3 border border-dark">
+                <h3>You can rent a boat remotely!</h3>
             </div>
         </div>
     </div>
+    {%endblock%}
 </header>
-<main>
-    <!--carousel-->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div id="carouselExampleIndicators" class="carousel slide">
-                      <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                      </div>
-                        <div class="carousel-inner">
-                            {% for cur in subs%}
-                            <div class="carousel-item active">
-                                <a href="{% url 'post' cur.slug %}">
-                                    <img src="{% static 'images/yach2.jpg'%}" class="d-block w-100">
-                                </a>
-                            </div>
-                            <div class="carousel-item active">
-                                <a href="{% url 'post' cur.slug %}">
-                                <img src="{% static 'images/yacht.jpg'%}" class="d-block w-100">
-                                </a>
-                            </div>
-                            <div class="carousel-item active">
-                                    <a href="{% url 'post' cur.slug %}">
-                                        <img src="{% static 'images/Yacht-vs-Boat-Whats-the-Difference-Between-the-Two.jpg'%}" class="d-block w-100">
-                                    </a>
-                            </div>
-                        </div>
-                        {%endfor%}
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
-                    </div>
-                </div>
+<!--Just section to fill some place-->
+{%block other-sections%}
+<section>
+    <div class="container mt-4 border border-dark-rounded">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="mt-5 w-20 h-20 font-weight-bold">Be the best!</h2>
+                <br>
+                <h2 class="font-weight-bold">Rent the best boats with us!</h2>
+            </div>
+            <div class="col">
+                <img class="rounded-circle w-100 h-100 float-right" src="{% static '/images/yacht.jpg'%}" >
             </div>
         </div>
-    </section>
-</main>
-<!--<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cupiditate ea enim fuga id iste necessitatibus non, quae sit voluptatum. Adipisci cupiditate doloremque doloribus eos eveniet harum, id incidunt libero nesciunt non, numquam sed soluta, vitae! A architecto aspernatur deserunt eius expedita fugit id itaque possimus repudiandae voluptatibus. Aliquam atque deleniti, doloribus ea in labore nam nulla officia officiis veniam. Accusantium aliquam asperiores beatae corporis distinctio, doloribus excepturi itaque laborum natus nemo nobis nostrum officiis perferendis praesentium quaerat quas reiciendis repellat soluta vel voluptates! Alias, deserunt, doloribus in iste magni odio omnis, perferendis placeat quasi reprehenderit rerum ullam veniam voluptates? Impedit sit, veniam? Ad aliquam aperiam atque eius, ex excepturi exercitationem explicabo impedit ipsa laudantium modi officia officiis placeat sed tenetur veniam voluptate! Aperiam assumenda enim incidunt ipsam laboriosam, molestiae quod recusandae repellendus. Eaque facilis, harum impedit iure molestias mollitia nesciunt nobis odio officia, omnis reprehenderit repudiandae, sint tempore unde voluptatem. Adipisci amet excepturi illo labore molestiae optio. Accusantium aut cum cumque debitis dicta doloribus eaque eligendi exercitationem, expedita fuga in ipsa ipsum, labore maxime molestiae nesciunt nobis odit praesentium quasi quidem quo, repellat repudiandae sapiente sed suscipit tempora tenetur? Asperiores at aut commodi corporis cum deserunt dignissimos, doloremque, earum et ex facere fugit harum illo illum magnam magni maxime nam, nemo quae quisquam saepe sapiente soluta totam! A aliquam aliquid deserunt dolores doloribus earum error et eum ex, exercitationem harum id in iusto libero minus modi molestiae natus neque nihil odio officia officiis quasi quos repellat reprehenderit saepe soluta ullam veritatis vero voluptatem. Animi cumque harum id numquam sint! Adipisci alias at blanditiis consequatur corporis cum cumque ducimus eaque earum eos ex facere inventore iste iure iusto, laboriosam maiores minus nam nesciunt obcaecati omnis porro possimus reprehenderit repudiandae, similique sit voluptatem. Ab, ad culpa dignissimos dolores eaque itaque iusto libero nihil odio praesentium qui reprehenderit. Ad aliquam, consequuntur deserunt dolorem, eum expedita harum iste iusto laborum libero magnam molestiae nam natus officiis placeat qui quidem? Corporis deleniti dicta error eum fugiat hic laudantium libero, minus praesentium quam repudiandae sequi ullam ut. Aliquid aspernatur atque, autem cum cupiditate dolore dolores iste nostrum voluptate! Accusantium ad at dignissimos distinctio dolorum ea, impedit magni neque nobis non optio pariatur, perspiciatis placeat quidem repellat sapiente similique velit, voluptatem! Architecto asperiores, corporis cumque doloribus earum expedita in ipsum labore molestiae natus nisi provident. Amet atque error fugiat laboriosam nemo quas rem, voluptatum. Aspernatur cumque dolore ea repellat tenetur. A alias aspernatur assumenda aut deleniti eaque explicabo fugit itaque, molestiae nemo qui reiciendis repudiandae sequi similique, sunt! Culpa eaque ipsam laboriosam magni, nisi sunt ullam? Aut consequuntur ducimus excepturi laboriosam nam quasi qui ratione, repellendus vero? Aut dolorem dolores ducimus eius eligendi est, fuga fugit harum incidunt iusto perspiciatis possimus quam quas quibusdam quisquam quo rem sunt tempore, temporibus unde? Animi dolores illo magnam minus modi quas vel? Consequatur nam rem unde. A alias, cumque ducimus est eveniet incidunt iste magnam minima molestiae quam quas reprehenderit repudiandae, tenetur velit voluptates! Dolor dolorem libero maiores sunt.</div>-->
+    </div>
+</section>
+<!--Rent cards boat-->
+<section>
+    <div class="container mt-4" id="Renting">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+          <!--First card-->
+        <div class="card h-100">
+          <img src="{% static '/images/yacht.jpg'%}" class="card-img-top"
+            alt="Skyscrapers" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.
+            </p>
+              <!--How to get the right text?-->
+
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+          <!--Second card-->
+        <div class="card h-100">
+          <img src="{% static '/images/yach2.jpg'%}" class="card-img-top"
+            alt="Los Angeles Skyscrapers" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+            </p>
+
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+           <!--Third card-->
+        <div class="card h-100">
+          <img src="{% static '/images/Yacht-vs-Boat-Whats-the-Difference-Between-the-Two.jpg'%}" class="card-img-top"
+            alt="Palm Springs Road" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural lead-in to
+              additional content. This card has even longer content than the first to show
+              that equal height action.
+            </p>
+
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</section>
+<!--Responses from users-->
+<section>
+    <div class="container">
+        <h2 class="text-center border border-rounded mt-5">
+            See what our customers are saying
+        </h2>
+    </div>
+    <!--Carousel-->
+    <div class="container my-5">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                  <!--How to make photos with the same size-->
+                  <div class="col">
+                        <img src="{% static '/images/albert einstein.jpg'%}" class="img-fluid d-block w-100 c1img border border-rounded" alt="...">
+                  </div>
+                  <div class="col c1img d-flex align-items-center bg-primary border border-rounded">
+                      <h3 class=" border border-dark-rounded">The best beach I've ever seen! I created my theory swimming on this beach!</h3>
+                  </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                  <div class="col">
+                        <img src="{% static '/images/aristotel.jpg' %}" class="img-fluid d-block w-100 c1img border border-rounded" alt="...">
+                  </div>
+                  <div class="c1img col d-flex align-items-center bg-primary border border-rounded">
+                      <h3 class="my-5 border border-dark-rounded">The best beach I've ever seen! I created my theory swimming on this beach!</h3>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+    </div>
+</section>
+{%endblock%}
 <footer id="footer">
-    <!--contacts-->
+    <!--Contacts, links etc.-->
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
-                <a href="" class="btn btn-outline-light"><i class="icon-youtube-play"></i></a>
-                <a href="" class="btn btn-outline-light"><i class="icon-vkontakte"></i></a>
-                <a href="" class="btn btn-outline-light"><i class="icon-twitter"></i></a>
+            <div class="col">
+                <a href="" class="border border-dark-rounded"><i class=""></i></a>
             </div>
         </div>
     </div>

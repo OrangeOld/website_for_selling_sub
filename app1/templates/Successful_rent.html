@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Success</title>
-</head>
-<body>
+{%extends 'main_page.html'%}
+{%load static%}
+{%block HEADER%}
+{%endblock%}
+{%block other-sections%}
 <h1 align="center">You have rented a boat successfully!</h1>
 <a href="{%url 'mainpage'%}">Return to main page</a>
-</body>
-</html>
+{%endblock%}

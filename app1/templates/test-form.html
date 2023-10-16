@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Test-Form</title>
-</head>
-<body>
+{%extends 'main_page.html'%}
+{%load static%}
+{%block HEADER%}
+{%endblock%}
+{%block other-sections%}
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Submit</button>
 </form>
 <p><a href="{%url 'mainpage'%}">main page</a></p>
-</body>
-</html>
+{%endblock%}
