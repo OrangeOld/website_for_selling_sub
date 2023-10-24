@@ -16,15 +16,21 @@
     <!--icons-->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-dark">
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+
 <header>
     <div class="container">
       <div class="row">
-          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-              <div class="collapse navbar-collapse">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-primary border border-dark">
+              <!--Button for navbar menu in mobile version(doesn't work in mobile version)-->
+              <button class="navbar-toggler" type="button" data-toggle="collapse"
+                      data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false">
+                        <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarContent">
                 <div class="navbar-nav">
                   <a class="nav-item nav-link" href="#Renting">Rent</a>
                   <a class="nav-item nav-link" href="#footer">Contacts</a>
@@ -41,23 +47,23 @@
   </div>
     {%block HEADER%}
     <!--HEADER-->
-    <div class="container mt-4 border border-dark rounded">
+    <div class="container mt-4 border border-dark rounded blockimg bg-primary p-5">
         <h1 class="text-center font-weight-bold">Welcome to Your Website</h1>
         <p class="text-center">This is a simple Bootstrap-based header.</p>
     </div>
     <!--About advantages of our beach-->
     <div class="container my-5">
         <div class="row">
-            <h2 class="text-center border border-dark">Advantages of our beach</h2>
-            <div class="col-4 my-3 border border-dark">
+            <h2 class="text-center border border-dark bg-primary">Advantages of our beach</h2>
+            <div class="col-lg-4 col-sm-12 d-sm-flex d-lg-flex d-flex p-3 my-3 border border-dark bg-primary">
                 <!--font awesome icon-->
                 <!--<i class="fa fa-search"></i>-->
                 <h3>Free training to help you to use boats!</h3>
             </div>
-            <div class="col-4 my-3 border border-dark">
+           <div class="col-lg-4 col-sm-12 d-sm-flex d-lg-flex d-flex p-3 my-3 border border-dark bg-primary">
                 <h3>The cheapest price compare to another beaches!</h3>
             </div>
-            <div class="col-4 my-3 border border-dark">
+            <div class="col-lg-4 col-sm-12 d-sm-flex d-lg-flex d-flex p-3 my-3 border border-dark bg-primary">
                 <h3>You can rent a boat remotely!</h3>
             </div>
         </div>
@@ -68,14 +74,14 @@
 {%block other-sections%}
 <section>
     <div class="container mt-4 border border-dark-rounded">
-        <div class="row">
+        <div class="row bg-primary border border-dark">
             <div class="col-6">
                 <h2 class="mt-5 w-20 h-20 font-weight-bold">Be the best!</h2>
                 <br>
                 <h2 class="font-weight-bold">Rent the best boats with us!</h2>
             </div>
             <div class="col">
-                <img class="rounded-circle w-100 h-100 float-right" src="{% static '/images/yacht.jpg'%}" >
+                <img class="rounded-circle w-100 h-100 float-right border border-dark" src="{% static '/images/yacht.jpg'%}" >
             </div>
         </div>
     </div>
@@ -84,27 +90,33 @@
 <section>
     <div class="container mt-4" id="Renting">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
+            <!--Make cards (find out about image path for each image)-->
+            <div class="col">
           <!--First card-->
         <div class="card h-100">
+            <!--How to change an image path?-->
+            <!--Need one parameter to store an image path-->
           <img src="{% static '/images/yacht.jpg'%}" class="card-img-top"
             alt="Skyscrapers" />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Card Title</h5>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This content is a little bit longer.
+                <!--Need one parameter to store this text-->
+                Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Aperiam at consequatur corporis, delectus facilis libero minus
+                ratione reprehenderit tenetur voluptferendis rerum. Facere, sed.
             </p>
               <!--How to get the right text?-->
-
+            <a href="" type="button" class="btn btn-primary">Rent</a>
           </div>
           <div class="card-footer">
             <small class="text-muted">Last updated 3 mins ago</small>
           </div>
         </div>
       </div>
+
       <div class="col">
-          <!--Second card-->
+
         <div class="card h-100">
           <img src="{% static '/images/yach2.jpg'%}" class="card-img-top"
             alt="Los Angeles Skyscrapers" />
@@ -113,6 +125,7 @@
             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
             </p>
 
+            <a href="" type="button" class="btn btn-primary">Rent</a>
           </div>
           <div class="card-footer">
             <small class="text-muted">Last updated 3 mins ago</small>
@@ -120,7 +133,7 @@
         </div>
       </div>
       <div class="col">
-           <!--Third card-->
+
         <div class="card h-100">
           <img src="{% static '/images/Yacht-vs-Boat-Whats-the-Difference-Between-the-Two.jpg'%}" class="card-img-top"
             alt="Palm Springs Road" />
@@ -131,7 +144,7 @@
               additional content. This card has even longer content than the first to show
               that equal height action.
             </p>
-
+            <a href="" type="button" class="btn btn-primary">Rent</a>
           </div>
           <div class="card-footer">
             <small class="text-muted">Last updated 3 mins ago</small>
@@ -142,9 +155,10 @@
     </div>
 </section>
 <!--Responses from users-->
-<section>
-    <div class="container">
-        <h2 class="text-center border border-rounded mt-5">
+<section class="d-sm-none">
+    <div class="container d-lg-flex d-sm-none">
+        <!--Why doesn't h2 locate to center-->
+        <h2 class="text-center border border-rounded mt-5 bg-primary">
             See what our customers are saying
         </h2>
     </div>
@@ -159,20 +173,21 @@
             <div class="carousel-item active">
               <div class="row">
                   <!--How to make photos with the same size-->
-                  <div class="col">
+                  <!--Make comments from users for mobile version-->
+                  <div class="col-lg-6 d-lg-flex d-sm-none">
                         <img src="{% static '/images/albert einstein.jpg'%}" class="img-fluid d-block w-100 c1img border border-rounded" alt="...">
                   </div>
-                  <div class="col c1img d-flex align-items-center bg-primary border border-rounded">
-                      <h3 class=" border border-dark-rounded">The best beach I've ever seen! I created my theory swimming on this beach!</h3>
+                  <div class="c1img col d-lg-flex d-sm-none d-flex align-items-center bg-primary border border-rounded">
+                      <h3 class="my-5 border border-dark-rounded">The best beach I've ever seen! I created my theory swimming on this beach!</h3>
                   </div>
               </div>
             </div>
             <div class="carousel-item">
                 <div class="row">
-                  <div class="col">
+                  <div class="col-lg-6 d-lg-flex d-sm-none">
                         <img src="{% static '/images/aristotel.jpg' %}" class="img-fluid d-block w-100 c1img border border-rounded" alt="...">
                   </div>
-                  <div class="c1img col d-flex align-items-center bg-primary border border-rounded">
+                  <div class="c1img col d-lg-flex d-sm-none d-flex align-items-center bg-primary border border-rounded">
                       <h3 class="my-5 border border-dark-rounded">The best beach I've ever seen! I created my theory swimming on this beach!</h3>
                   </div>
               </div>
@@ -191,11 +206,26 @@
 </section>
 {%endblock%}
 <footer id="footer">
-    <!--Contacts, links etc.-->
-    <div class="container">
+    <!--FAQ-->
+    <div class="container my-5">
         <div class="row">
             <div class="col">
-                <a href="" class="border border-dark-rounded"><i class=""></i></a>
+                <h2 class="text-center bg-primary p-3">
+                    FAQ
+                </h2>
+                <!--Add some faq(buttons)-->
+            </div>
+        </div>
+    </div>
+    <!--Contacts, links etc.-->
+    <div class="container ">
+        <div class="row">
+            <div class="col bg-primary border border-dark p-5">
+                <h2 class="text-center">Our contacts</h2>
+                <a href="" class="border border-dark-rounded"><i class="fa fa-camera-only"></i></a>
+                <a href="" class="border border-dark-rounded"><i class="fa fa-camera-only"></i></a>
+                <a href="" class="border border-dark-rounded"><i class="fa fa-camera-only"></i></a>
+                <a href="" class="border border-dark-rounded"><i class="fa fa-camera-only"></i></a>
             </div>
         </div>
     </div>

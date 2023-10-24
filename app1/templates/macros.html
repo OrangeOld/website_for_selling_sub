@@ -1,0 +1,60 @@
+{% macro cards %}
+{% for cur in subs%}
+<div class="col">
+          <!--First card-->
+        <div class="card h-100">
+            <!--How to change an image path?-->
+            <!--Need one parameter to store an image path-->
+          <img src="{% static '{{cur.image}}'%}" class="card-img-top"
+            alt="Skyscrapers" />
+          <div class="card-body">
+            <h5 class="card-title">{{cur.Name}}</h5>
+            <p class="card-text">
+                <!--Need one parameter to store this text-->
+                {{cur.text}}
+            </p>
+              <!--How to get the right text?-->
+            <a href="" type="button" class="btn btn-primary">Rent</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+{%endfor%}
+      <!--<div class="col">
+
+        <div class="card h-100">
+          <img src="{% static '/images/yach2.jpg'%}" class="card-img-top"
+            alt="Los Angeles Skyscrapers" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+            </p>
+
+            <a href="" type="button" class="btn btn-primary">Rent</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+
+        <div class="card h-100">
+          <img src="{% static '/images/Yacht-vs-Boat-Whats-the-Difference-Between-the-Two.jpg'%}" class="card-img-top"
+            alt="Palm Springs Road" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural lead-in to
+              additional content. This card has even longer content than the first to show
+              that equal height action.
+            </p>
+            <a href="" type="button" class="btn btn-primary">Rent</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>-->

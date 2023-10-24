@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
 import smtplib
 # Create your views here.
 
+
 class Customers(ListView):
     model=User
     template_name=r'main_page.html'
@@ -23,6 +24,7 @@ class Subs(ListView):
 def handle_form(request):
     if request.method=='POST':
         form=BeachUser(request.POST,request.FILES)
+        print(form.as_p())
         if form.is_valid():
             form.save()
             def send_notice():
@@ -41,10 +43,12 @@ def handle_form(request):
 
                 server.sendmail(sender_email, recipient_email, message)
                 server.quit()
-            send_notice()
+            #send_notice()
             return redirect('succ')
     else:
         form=BeachUser()
+        #print(form.as_p())
+        #print(form.cleaned_data.get(''))
     return render(request,r'test-form.html',{'form':form})
 
 def Succesrent(request):

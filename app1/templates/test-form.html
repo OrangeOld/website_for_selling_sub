@@ -3,10 +3,18 @@
 {%block HEADER%}
 {%endblock%}
 {%block other-sections%}
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
-<p><a href="{%url 'mainpage'%}">main page</a></p>
+<!--Add a modal window with rules and consequences-->
+<div class="container">
+    <div class="row justify-content-center my-5">
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data" class="form-control bg-primary border border-dark">
+                {% csrf_token %}
+                <h2 class="text-center mb-5">Fill in a form</h2>
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <a href="{%url 'mainpage'%}" role="button" class="btn btn-primary my-2">Return back</a>
+        </div>
+    </div>
+</div>
 {%endblock%}
